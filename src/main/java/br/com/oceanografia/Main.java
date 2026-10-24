@@ -12,13 +12,17 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
     private Scene scene;
+
     private VBox telaMapa;
+
+    private VBox telaMenu;
+
 
     @Override
     public void start(Stage stage) {
 
         // BANCO DE DADOS
-     
+
         BancoDados.criarTabela();
         BancoDados.criarTabelaEMEC();
         BancoDados.criarTabelaUNIFESP();
@@ -30,9 +34,11 @@ public class Main extends Application {
 
         BancoDados.atualizarEstadosEMEC();
 
-        // TÍTULO
 
-        Label titulo = new Label("OCEANOGRAFIA NO BRASIL");
+        // TÍTULO DO MAPA
+
+        Label titulo =
+            new Label("OCEANOGRAFIA NO BRASIL");
 
         titulo.setStyle(
             "-fx-font-size: 30px;" +
@@ -40,8 +46,10 @@ public class Main extends Application {
             "-fx-text-fill: #2196F3;"
         );
 
+
         Label subtitulo = new Label(
-            "Explore os estados e descubra as instituições que oferecem o curso de Oceanografia"
+            "Explore os estados e descubra as instituições " +
+            "que oferecem o curso de Oceanografia"
         );
 
         subtitulo.setStyle(
@@ -49,21 +57,25 @@ public class Main extends Application {
             "-fx-text-fill: #B8C7D9;"
         );
 
+
         VBox cabecalho = new VBox(
             5,
             titulo,
             subtitulo
         );
 
+
         // PAINEL DIREITO
 
-        Label painelTitulo = new Label("Selecione um estado");
+        Label painelTitulo =
+            new Label("Selecione um estado");
 
         painelTitulo.setStyle(
             "-fx-font-size: 25px;" +
             "-fx-font-weight: bold;" +
             "-fx-text-fill: #29B6F6;"
         );
+
 
         Label painelTexto = new Label(
             "Clique em um estado no mapa para visualizar\n" +
@@ -76,13 +88,16 @@ public class Main extends Application {
             "-fx-text-fill: #B8C7D9;"
         );
 
-        Label sobre = new Label("Sobre o projeto");
+
+        Label sobre =
+            new Label("Sobre o projeto");
 
         sobre.setStyle(
             "-fx-font-size: 20px;" +
             "-fx-font-weight: bold;" +
             "-fx-text-fill: white;"
         );
+
 
         Label descricao = new Label(
             "Este mapa apresenta as instituições públicas\n" +
@@ -95,6 +110,7 @@ public class Main extends Application {
             "-fx-text-fill: #B8C7D9;"
         );
 
+
         VBox painelDireito = new VBox(
             25,
             painelTitulo,
@@ -103,7 +119,10 @@ public class Main extends Application {
             descricao
         );
 
-        painelDireito.setPadding(new Insets(30));
+        painelDireito.setPadding(
+            new Insets(30)
+        );
+
         painelDireito.setMinWidth(400);
 
         painelDireito.setStyle(
@@ -113,34 +132,43 @@ public class Main extends Application {
             "-fx-border-radius: 15px;"
         );
 
+
         // MAPA DO BRASIL
 
         javafx.scene.Group mapaBrasil =
             MapaBrasil.criarMapa(nomeEstado -> {
 
-                VBox telaEstado = TelaEstado.criar(
-                    nomeEstado,
-                    () -> scene.setRoot(telaMapa)
-                );
+                VBox telaEstado =
+                    TelaEstado.criar(
+                        nomeEstado,
+                        () -> scene.setRoot(telaMapa)
+                    );
 
                 scene.setRoot(telaEstado);
             });
 
+
         mapaBrasil.setScaleX(1.20);
         mapaBrasil.setScaleY(1.20);
 
+
         // ÁREA DO MAPA
 
-        StackPane areaMapa = new StackPane(mapaBrasil);
+        StackPane areaMapa =
+            new StackPane(mapaBrasil);
 
-        areaMapa.setMinSize(650, 600);
+        areaMapa.setMinSize(
+            650,
+            600
+        );
 
         areaMapa.setStyle(
             "-fx-background-color: #05090D;" +
             "-fx-background-radius: 15px;"
         );
 
-        // CONTEÚDO PRINCIPAL
+
+        // CONTEÚDO DO MAPA
 
         HBox conteudo = new HBox(
             30,
@@ -148,69 +176,125 @@ public class Main extends Application {
             painelDireito
         );
 
-        conteudo.setAlignment(Pos.CENTER);
+        conteudo.setAlignment(
+            Pos.CENTER
+        );
 
-        // BOTÃO INFORMAÇÕES
 
-        Button botaoNovaTela = new Button("Informações");
+        // BOTÃO VOLTAR
 
-        botaoNovaTela.setStyle(
+        Button botaoVoltar =
+            new Button("Voltar ao OCEANO HUB");
+
+        botaoVoltar.setStyle(
             "-fx-background-color: #15232D;" +
             "-fx-text-fill: white;" +
-            "-fx-font-size: 15px;" +
+            "-fx-font-size: 14px;" +
             "-fx-font-weight: bold;" +
             "-fx-background-radius: 8px;" +
-            "-fx-padding: 10px 22px;" +
+            "-fx-padding: 10px 18px;" +
             "-fx-cursor: hand;"
         );
 
-        botaoNovaTela.setOnAction(event -> {
+        botaoVoltar.setOnAction(event -> {
 
-            VBox novaTela = criarNovaTela();
+            scene.setRoot(telaMenu);
 
-            scene.setRoot(novaTela);
         });
 
-        // POSIÇÃO DO BOTÃO
 
-        HBox areaBotao = new HBox(botaoNovaTela);
+        HBox areaBotaoVoltar =
+            new HBox(botaoVoltar);
 
-        areaBotao.setAlignment(Pos.CENTER_LEFT);
-
-        // Move o botão para cima e para a direita
-        areaBotao.setPadding(
-            new Insets(-80, 0, 0, 40)
+        areaBotaoVoltar.setAlignment(
+            Pos.CENTER_LEFT
         );
 
 
-        // TELA PRINCIPAL
+        // TELA DO MAPA
 
         VBox principal = new VBox(
-            20,
+            15,
+            areaBotaoVoltar,
             cabecalho,
-            conteudo,
-            areaBotao
+            conteudo
         );
 
-        principal.setPadding(new Insets(30));
+        principal.setPadding(
+            new Insets(30)
+        );
 
         principal.setStyle(
             "-fx-background-color: #020609;"
         );
 
+
         telaMapa = principal;
+
+
+        // OCEANO HUB
+
+        telaMenu = TelaMenu.criar(
+
+            // CURSOS DE OCEANOGRAFIA
+
+            () -> {
+
+                scene.setRoot(telaMapa);
+
+            },
+
+
+            // TRÁFEGO MARÍTIMO
+
+            () -> {
+
+                VBox telaTrafego =
+                    TelaTrafegoMaritimo.criar(
+
+                        () ->
+                            scene.setRoot(telaMenu)
+
+                    );
+
+                scene.setRoot(telaTrafego);
+
+            },
+
+
+            // REVISTAS CIENTÍFICAS
+
+            () -> {
+
+                VBox telaRevistas =
+                    TelaRevistas.criar(
+
+                        () ->
+                            scene.setRoot(telaMenu)
+
+                    );
+
+                scene.setRoot(telaRevistas);
+
+            }
+
+        );
+
 
         // SCENE
 
         scene = new Scene(
-            telaMapa,
+            telaMenu,
             1200,
             750
         );
 
+
         // JANELA
 
-        stage.setTitle("Mapa da Oceanografia");
+        stage.setTitle(
+            "Oceano Hub"
+        );
 
         stage.setScene(scene);
 
@@ -220,91 +304,12 @@ public class Main extends Application {
         stage.show();
     }
 
-    // TELA DE INFORMAÇÕES
-
-    private VBox criarNovaTela() {
-
-        // BOTÃO VOLTAR
-
-        Button botaoVoltar = new Button("Voltar ao mapa");
-
-        botaoVoltar.setStyle(
-            "-fx-background-color: #15232D;" +
-            "-fx-text-fill: white;" +
-            "-fx-font-size: 15px;" +
-            "-fx-background-radius: 8px;" +
-            "-fx-padding: 10px 18px;" +
-            "-fx-cursor: hand;"
-        );
-
-        botaoVoltar.setOnAction(
-            event -> scene.setRoot(telaMapa)
-        );
-
-
-        // TÍTULO
-
-        Label titulo = new Label("INFORMAÇÕES");
-
-        titulo.setStyle(
-            "-fx-font-size: 30px;" +
-            "-fx-font-weight: bold;" +
-            "-fx-text-fill: #29B6F6;"
-        );
-
-
-        // TEXTO
-
-        Label texto = new Label(
-            "Esta é a nova tela do sistema.\n\n" +
-            "O conteúdo desta página poderá ser " +
-            "adicionado posteriormente."
-        );
-
-        texto.setWrapText(true);
-
-        texto.setStyle(
-            "-fx-font-size: 17px;" +
-            "-fx-text-fill: #B8C7D9;"
-        );
-
-        // CAIXA DE CONTEÚDO
-
-        VBox caixa = new VBox(
-            20,
-            titulo,
-            texto
-        );
-
-        caixa.setPadding(new Insets(30));
-
-        caixa.setStyle(
-            "-fx-background-color: #0D141A;" +
-            "-fx-background-radius: 15px;" +
-            "-fx-border-color: #263D4A;" +
-            "-fx-border-radius: 15px;"
-        );
-
-        // TELA
-
-        VBox novaTela = new VBox(
-            25,
-            botaoVoltar,
-            caixa
-        );
-
-        novaTela.setPadding(new Insets(35));
-
-        novaTela.setStyle(
-            "-fx-background-color: #020609;"
-        );
-
-        return novaTela;
-    }
 
     // INICIAR PROGRAMA
 
     public static void main(String[] args) {
+
         launch(args);
+
     }
 }
