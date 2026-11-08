@@ -1,0 +1,242 @@
+package br.com.oceanografia;
+
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.VBox;
+
+public class TelaMenu {
+
+    public static VBox criar(
+        Runnable abrirCursos,
+        Runnable abrirTrafego,
+        Runnable abrirRevistas,
+        Runnable abrirEspecies,
+        Runnable abrirInstituicoes,
+        Runnable abrirCursosRelacionados
+    ) {
+
+        // ==========================================
+        // TÍTULO CENTRAL
+        // ==========================================
+
+        Label titulo = new Label("OCEANO HUB");
+
+        titulo.setStyle(
+            "-fx-font-size: 52px;" +
+            "-fx-font-weight: bold;" +
+            "-fx-text-fill: #29B6F6;"
+        );
+
+        Label subtitulo = new Label(
+            "Conhecimento e Oceanografia em um só lugar"
+        );
+
+        subtitulo.setStyle(
+            "-fx-font-size: 18px;" +
+            "-fx-text-fill: #B8C7D9;"
+        );
+
+        // ==========================================
+        // OPÇÕES DO MENU
+        // ==========================================
+
+        Button especies =
+            criarBotao("Espécies Marinhas");
+
+        Button trafego =
+            criarBotao("Tráfego Marítimo");
+
+        Button revistas =
+            criarBotao("Revistas Científicas");
+
+        Button cursos =
+            criarBotao("Cursos de Oceanografia");
+
+        Button cursosRelacionados =
+            criarBotao("Cursos Relacionados");
+
+        Button instituicoes =
+            criarBotao("Instituições Oceânicas");
+
+        // ==========================================
+        // AÇÕES DOS BOTÕES
+        // ==========================================
+
+        especies.setOnAction(event -> {
+            abrirEspecies.run();
+        });
+
+        trafego.setOnAction(event -> {
+            abrirTrafego.run();
+        });
+
+        revistas.setOnAction(event -> {
+            abrirRevistas.run();
+        });
+
+        cursos.setOnAction(event -> {
+            abrirCursos.run();
+        });
+
+        cursosRelacionados.setOnAction(event -> {
+            abrirCursosRelacionados.run();
+        });
+
+        instituicoes.setOnAction(event -> {
+            abrirInstituicoes.run();
+        });
+
+        // ==========================================
+        // CAIXA DO MENU
+        // ==========================================
+
+        VBox opcoesMenu = new VBox(
+            8,
+            especies,
+            trafego,
+            revistas,
+            cursos,
+            cursosRelacionados,
+            instituicoes
+        );
+
+        opcoesMenu.setPadding(new Insets(10));
+
+        opcoesMenu.setStyle(
+            "-fx-background-color: #101A22;" +
+            "-fx-background-radius: 10px;" +
+            "-fx-border-color: #263D4A;" +
+            "-fx-border-radius: 10px;"
+        );
+
+        opcoesMenu.setVisible(false);
+        opcoesMenu.setManaged(false);
+
+        // ==========================================
+        // BOTÃO MENU
+        // ==========================================
+
+        Button botaoMenu =
+            new Button("☰  MENU");
+
+        botaoMenu.setStyle(
+            "-fx-background-color: #15232D;" +
+            "-fx-text-fill: white;" +
+            "-fx-font-size: 16px;" +
+            "-fx-font-weight: bold;" +
+            "-fx-background-radius: 8px;" +
+            "-fx-padding: 10px 20px;" +
+            "-fx-cursor: hand;"
+        );
+
+        botaoMenu.setOnAction(event -> {
+
+            boolean aberto = opcoesMenu.isVisible();
+
+            opcoesMenu.setVisible(!aberto);
+            opcoesMenu.setManaged(!aberto);
+        });
+
+        // ==========================================
+        // PARTE SUPERIOR
+        // ==========================================
+
+        VBox areaMenu = new VBox(
+            5,
+            botaoMenu,
+            opcoesMenu
+        );
+
+        areaMenu.setAlignment(Pos.TOP_LEFT);
+
+        HBox topo = new HBox(areaMenu);
+
+        topo.setAlignment(Pos.TOP_LEFT);
+
+        // ==========================================
+        // CENTRO
+        // ==========================================
+
+        VBox centro = new VBox(
+            10,
+            titulo,
+            subtitulo
+        );
+
+        centro.setAlignment(Pos.CENTER);
+
+        // ==========================================
+        // TELA COMPLETA
+        // ==========================================
+
+        VBox tela = new VBox(
+            30,
+            topo,
+            centro
+        );
+
+        tela.setPadding(new Insets(30));
+
+        tela.setStyle(
+            "-fx-background-color: #020609;"
+        );
+
+        tela.setAlignment(Pos.TOP_LEFT);
+
+        VBox.setVgrow(
+            centro,
+            Priority.ALWAYS
+        );
+
+        return tela;
+    }
+
+    // ==========================================
+    // PADRÃO DOS BOTÕES
+    // ==========================================
+
+    private static Button criarBotao(String texto) {
+
+        Button botao = new Button(texto);
+
+        botao.setPrefWidth(250);
+
+        botao.setAlignment(Pos.CENTER_LEFT);
+
+        botao.setStyle(
+            "-fx-background-color: transparent;" +
+            "-fx-text-fill: white;" +
+            "-fx-font-size: 15px;" +
+            "-fx-padding: 12px 15px;" +
+            "-fx-cursor: hand;"
+        );
+
+        // Efeito ao passar o mouse
+
+        botao.setOnMouseEntered(event -> {
+            botao.setStyle(
+                "-fx-background-color: #18384A;" +
+                "-fx-text-fill: #29B6F6;" +
+                "-fx-font-size: 15px;" +
+                "-fx-padding: 12px 15px;" +
+                "-fx-cursor: hand;"
+            );
+        });
+
+        botao.setOnMouseExited(event -> {
+            botao.setStyle(
+                "-fx-background-color: transparent;" +
+                "-fx-text-fill: white;" +
+                "-fx-font-size: 15px;" +
+                "-fx-padding: 12px 15px;" +
+                "-fx-cursor: hand;"
+            );
+        });
+
+        return botao;
+    }
+}

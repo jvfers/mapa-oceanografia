@@ -1,0 +1,95 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+
+    <div style="text-align: left; padding: 4px; font-weight: bold;">
+        Minist&eacute;rio da Educa&ccedil;&atilde;o - Sistema e-MEC<br />
+        Relat&oacute;rio da Consulta Avan&ccedil;ada<br />
+        Resultado da Consulta Por&nbsp;:&nbsp;<span style="text-transform: uppercase; color: #ffcc00">&nbsp;&nbsp;Curso</span><br />
+        Relat&oacute;rio Processado : 20/09/2026&nbsp;-&nbsp;22:31:40&nbsp;&nbsp;&nbsp;&nbsp;Total de Registro(s) : 2    </div>
+
+
+<br />
+
+<style type='text/css'>
+                <!--
+                th {
+                  font-weight: bold;
+                }
+
+                #novo_pagination_style  {
+                border:1px solid #D8DFEA;
+                padding:10px 15px;
+                background-color:#EDEFF4;
+                }
+
+
+                #novo_pagination_style a {
+                color:#3B5998;
+                cursor:pointer;
+                text-decoration:none;
+                font-family:'lucida grande',tahoma,verdana,arial,sans-serif;
+                font-size:11px;
+                text-align:left;
+                }
+
+                .linha_th_nova_grid
+                {
+                  background-color: #EDEDED;
+                  font-size:11px;
+                  padding: 4px;
+                  height: 34px;
+                  font-weight: bold;
+                }
+
+                .linha_tr_body_nova_grid
+                {
+                  height: 34px;
+                  text-align:left;
+                  background-color: #ffffff;
+                }
+                
+                tr.linha_tr_body_nova_grid:hover
+                {
+                  height: 34px;
+                  text-align:left;
+                  background-color: #F5F9F4;
+                }
+
+                .linha_tr_body_nova_grid_old
+                {
+                  height: 34px;
+                  text-align:left;
+                  background-color: #eefcff;
+                }
+                
+                tr.linha_tr_body_nova_grid_old:hover
+                {
+                  height: 34px;
+                  text-align:left;
+                  background-color: #F5F9F4;
+                }
+                
+                .order
+                {
+                    background: #EDEDED url( /emec/img//botoes/ordenar.gif) no-repeat right;
+                    cursor: hand;
+                    cursor: pointer;
+                    padding-right: 15px;
+                }
+                .orderDesc
+                {
+                    background: #EDEDED url(/emec/img//botoes/ordenar-decrescente.gif) no-repeat right;
+                    cursor: hand;
+                    cursor: pointer;
+                    padding-right: 15px;
+                }
+                .orderAsc
+                {
+                    background: #EDEDED url(/emec/img//botoes/ordenar-crescente.gif) no-repeat right;
+                    cursor: hand;
+                    cursor: pointer;
+                    padding-right: 15px;
+                }
+                
+                -->
+                </style><table style="width:100%" cellspacing="0" cellpadding="0" border="0" id="tbDataGridNova" ><thead ><tr bgcolor="#EDEDED" class="linha_th_nova_grid" ><th class="order" style="text-align:center;" class="linha_th_nova_grid" >C&oacute;digo IES</th><th class="order" style="text-align:center;" class="linha_th_nova_grid" >Institui&ccedil;&atilde;o(IES)</th><th class="order" style="text-align:center;" class="linha_th_nova_grid" >Sigla</th><th class="order" style="text-align:center;" class="linha_th_nova_grid" >Categoria Administrativa</th><th class="order" style="text-align:center;" class="linha_th_nova_grid" >C&oacute;digo Curso</th><th class="order" style="text-align:center;" class="linha_th_nova_grid" >Nome do Curso</th><th class="order" style="text-align:center;" class="linha_th_nova_grid" >Grau</th><th class="order" style="text-align:center;" class="linha_th_nova_grid" >Modalidade</th><th class="order" style="text-align:center;" class="linha_th_nova_grid" >CC</th><th class="order" style="text-align:center;" class="linha_th_nova_grid" >Ano CC</th><th class="order" style="text-align:center;" class="linha_th_nova_grid" >CPC</th><th class="order" style="text-align:center;" class="linha_th_nova_grid" >Ano CPC</th><th class="order" style="text-align:center;" class="linha_th_nova_grid" >ENADE</th><th class="order" style="text-align:center;" class="linha_th_nova_grid" >Ano ENADE</th><th class="order" style="text-align:center;" class="linha_th_nova_grid" >IDD</th><th class="order" style="text-align:center;" class="linha_th_nova_grid" >Ano IDD</th><th class="order" style="text-align:center;" class="linha_th_nova_grid" >Vagas Autorizadas</th><th class="order" style="text-align:center;" class="linha_th_nova_grid" >Data in&iacute;cio funcionamento</th><th class="order" style="text-align:center;" class="linha_th_nova_grid" >Data Ato de Cria&ccedil;&atilde;o</th><th class="order" style="text-align:center;" class="linha_th_nova_grid" >Situa&ccedil;&atilde;o</th><th class="order" style="text-align:center;" class="linha_th_nova_grid" >Código Área Geral CINE</th><th class="order" style="text-align:center;" class="linha_th_nova_grid" >Área Geral CINE </th><th class="order" style="text-align:center;" class="linha_th_nova_grid" >Código Área Específica CINE</th><th class="order" style="text-align:center;" class="linha_th_nova_grid" >Área Específica CINE</th><th class="order" style="text-align:center;" class="linha_th_nova_grid" >Código Área Detalhada CINE</th><th class="order" style="text-align:center;" class="linha_th_nova_grid" >Área Detalhada CINE</th><th class="order" style="text-align:center;" class="linha_th_nova_grid" >Código Rótulo CINE</th><th class="order" style="text-align:center;" class="linha_th_nova_grid" >Rótulo CINE</th></tr></thead><tbody id="tbyDados" ><tr class="linha_tr_body_nova_grid" ><td style="padding: 2px" >12</td><td style="padding: 2px" >UNIVERSIDADE FEDERAL DO RIO GRANDE</td><td style="padding: 2px" >FURG</td><td style="text-align:center;" style="padding: 2px" >Pública Federal</td><td style="padding: 2px" >1029</td><td style="padding: 2px" >OCEANOLOGIA</td><td style="text-align:center;" style="padding: 2px" >Bacharelado</td><td style="text-align:center;" style="padding: 2px" >Presencial</td><td style="text-align:center;" style="padding: 2px" >5</td><td style="text-align:center;" style="padding: 2px" >2018</td><td style="text-align:center;" style="padding: 2px" >-</td><td style="text-align:center;" style="padding: 2px" ></td><td style="text-align:center;" style="padding: 2px" >-</td><td style="text-align:center;" style="padding: 2px" ></td><td style="text-align:center;" style="padding: 2px" >SC</td><td style="text-align:center;" style="padding: 2px" ></td><td style="text-align:center;" style="padding: 2px" >40</td><td style="text-align:center;" style="padding: 2px" >01/03/1971</td><td style="text-align:center;" style="padding: 2px" >26/08/1970</td><td style="text-align:center;" style="padding: 2px" >Em Atividade</td><td style="text-align:center;" style="padding: 2px" >05</td><td style="text-align:center;" style="padding: 2px" >Ciências naturais, matemática e estatística</td><td style="text-align:center;" style="padding: 2px" >053</td><td style="text-align:center;" style="padding: 2px" >Ciências físicas</td><td style="text-align:center;" style="padding: 2px" >0532</td><td style="text-align:center;" style="padding: 2px" >Ciências da terra</td><td style="text-align:center;" style="padding: 2px" >="0532O01"</td><td style="text-align:center;" style="padding: 2px" >Oceanografia</td></tr><tr class="linha_tr_body_nova_grid_old" ><td style="padding: 2px" >18812</td><td style="padding: 2px" >UNIVERSIDADE FEDERAL DO SUL DA BAHIA</td><td style="padding: 2px" >UFSB</td><td style="text-align:center;" style="padding: 2px" >Pública Federal</td><td style="padding: 2px" >1438414</td><td style="padding: 2px" >OCEANOLOGIA</td><td style="text-align:center;" style="padding: 2px" >Bacharelado</td><td style="text-align:center;" style="padding: 2px" >Presencial</td><td style="text-align:center;" style="padding: 2px" >5</td><td style="text-align:center;" style="padding: 2px" >2024</td><td style="text-align:center;" style="padding: 2px" >-</td><td style="text-align:center;" style="padding: 2px" ></td><td style="text-align:center;" style="padding: 2px" >-</td><td style="text-align:center;" style="padding: 2px" ></td><td style="text-align:center;" style="padding: 2px" >SC</td><td style="text-align:center;" style="padding: 2px" ></td><td style="text-align:center;" style="padding: 2px" >40</td><td style="text-align:center;" style="padding: 2px" >17/02/2018</td><td style="text-align:center;" style="padding: 2px" >29/09/2017</td><td style="text-align:center;" style="padding: 2px" >Em Atividade</td><td style="text-align:center;" style="padding: 2px" >05</td><td style="text-align:center;" style="padding: 2px" >Ciências naturais, matemática e estatística</td><td style="text-align:center;" style="padding: 2px" >053</td><td style="text-align:center;" style="padding: 2px" >Ciências físicas</td><td style="text-align:center;" style="padding: 2px" >0532</td><td style="text-align:center;" style="padding: 2px" >Ciências da terra</td><td style="text-align:center;" style="padding: 2px" >="0532O01"</td><td style="text-align:center;" style="padding: 2px" >Oceanografia</td></tr></tbody></table>
