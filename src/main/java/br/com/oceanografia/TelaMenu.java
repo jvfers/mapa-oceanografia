@@ -13,10 +13,15 @@ public class TelaMenu {
     public static VBox criar(
         Runnable abrirCursos,
         Runnable abrirTrafego,
-        Runnable abrirRevistas
+        Runnable abrirRevistas,
+        Runnable abrirEspecies,
+        Runnable abrirInstituicoes,
+        Runnable abrirCursosRelacionados
     ) {
 
+        // ==========================================
         // TÍTULO CENTRAL
+        // ==========================================
 
         Label titulo = new Label("OCEANO HUB");
 
@@ -35,8 +40,9 @@ public class TelaMenu {
             "-fx-text-fill: #B8C7D9;"
         );
 
-
+        // ==========================================
         // OPÇÕES DO MENU
+        // ==========================================
 
         Button especies =
             criarBotao("Espécies Marinhas");
@@ -50,17 +56,18 @@ public class TelaMenu {
         Button cursos =
             criarBotao("Cursos de Oceanografia");
 
-        Button curiosidades =
-            criarBotao("Curiosidades");
+        Button cursosRelacionados =
+            criarBotao("Cursos Relacionados");
 
         Button instituicoes =
-            criarBotao("Instituições");
+            criarBotao("Instituições Oceânicas");
 
+        // ==========================================
+        // AÇÕES DOS BOTÕES
+        // ==========================================
 
-        // AÇÕES
-
-        cursos.setOnAction(event -> {
-            abrirCursos.run();
+        especies.setOnAction(event -> {
+            abrirEspecies.run();
         });
 
         trafego.setOnAction(event -> {
@@ -71,8 +78,21 @@ public class TelaMenu {
             abrirRevistas.run();
         });
 
+        cursos.setOnAction(event -> {
+            abrirCursos.run();
+        });
 
+        cursosRelacionados.setOnAction(event -> {
+            abrirCursosRelacionados.run();
+        });
+
+        instituicoes.setOnAction(event -> {
+            abrirInstituicoes.run();
+        });
+
+        // ==========================================
         // CAIXA DO MENU
+        // ==========================================
 
         VBox opcoesMenu = new VBox(
             8,
@@ -80,7 +100,7 @@ public class TelaMenu {
             trafego,
             revistas,
             cursos,
-            curiosidades,
+            cursosRelacionados,
             instituicoes
         );
 
@@ -96,8 +116,9 @@ public class TelaMenu {
         opcoesMenu.setVisible(false);
         opcoesMenu.setManaged(false);
 
-
+        // ==========================================
         // BOTÃO MENU
+        // ==========================================
 
         Button botaoMenu =
             new Button("☰  MENU");
@@ -114,15 +135,15 @@ public class TelaMenu {
 
         botaoMenu.setOnAction(event -> {
 
-            boolean aberto =
-                opcoesMenu.isVisible();
+            boolean aberto = opcoesMenu.isVisible();
 
             opcoesMenu.setVisible(!aberto);
             opcoesMenu.setManaged(!aberto);
         });
 
-
+        // ==========================================
         // PARTE SUPERIOR
+        // ==========================================
 
         VBox areaMenu = new VBox(
             5,
@@ -136,8 +157,9 @@ public class TelaMenu {
 
         topo.setAlignment(Pos.TOP_LEFT);
 
-
+        // ==========================================
         // CENTRO
+        // ==========================================
 
         VBox centro = new VBox(
             10,
@@ -147,8 +169,9 @@ public class TelaMenu {
 
         centro.setAlignment(Pos.CENTER);
 
-
+        // ==========================================
         // TELA COMPLETA
+        // ==========================================
 
         VBox tela = new VBox(
             30,
@@ -172,19 +195,17 @@ public class TelaMenu {
         return tela;
     }
 
-
+    // ==========================================
     // PADRÃO DOS BOTÕES
+    // ==========================================
 
     private static Button criarBotao(String texto) {
 
-        Button botao =
-            new Button(texto);
+        Button botao = new Button(texto);
 
-        botao.setPrefWidth(230);
+        botao.setPrefWidth(250);
 
-        botao.setAlignment(
-            Pos.CENTER_LEFT
-        );
+        botao.setAlignment(Pos.CENTER_LEFT);
 
         botao.setStyle(
             "-fx-background-color: transparent;" +
@@ -193,6 +214,28 @@ public class TelaMenu {
             "-fx-padding: 12px 15px;" +
             "-fx-cursor: hand;"
         );
+
+        // Efeito ao passar o mouse
+
+        botao.setOnMouseEntered(event -> {
+            botao.setStyle(
+                "-fx-background-color: #18384A;" +
+                "-fx-text-fill: #29B6F6;" +
+                "-fx-font-size: 15px;" +
+                "-fx-padding: 12px 15px;" +
+                "-fx-cursor: hand;"
+            );
+        });
+
+        botao.setOnMouseExited(event -> {
+            botao.setStyle(
+                "-fx-background-color: transparent;" +
+                "-fx-text-fill: white;" +
+                "-fx-font-size: 15px;" +
+                "-fx-padding: 12px 15px;" +
+                "-fx-cursor: hand;"
+            );
+        });
 
         return botao;
     }

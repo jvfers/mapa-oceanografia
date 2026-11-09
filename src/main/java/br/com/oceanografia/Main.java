@@ -17,11 +17,12 @@ public class Main extends Application {
 
     private VBox telaMenu;
 
-
     @Override
     public void start(Stage stage) {
 
+        // ==========================================
         // BANCO DE DADOS
+        // ==========================================
 
         BancoDados.criarTabela();
         BancoDados.criarTabelaEMEC();
@@ -34,18 +35,17 @@ public class Main extends Application {
 
         BancoDados.atualizarEstadosEMEC();
 
-
+        // ==========================================
         // TÍTULO DO MAPA
+        // ==========================================
 
-        Label titulo =
-            new Label("OCEANOGRAFIA NO BRASIL");
+        Label titulo = new Label("OCEANOGRAFIA NO BRASIL");
 
         titulo.setStyle(
             "-fx-font-size: 30px;" +
             "-fx-font-weight: bold;" +
             "-fx-text-fill: #2196F3;"
         );
-
 
         Label subtitulo = new Label(
             "Explore os estados e descubra as instituições " +
@@ -57,6 +57,7 @@ public class Main extends Application {
             "-fx-text-fill: #B8C7D9;"
         );
 
+        subtitulo.setWrapText(true);
 
         VBox cabecalho = new VBox(
             5,
@@ -64,18 +65,17 @@ public class Main extends Application {
             subtitulo
         );
 
-
+        // ==========================================
         // PAINEL DIREITO
+        // ==========================================
 
-        Label painelTitulo =
-            new Label("Selecione um estado");
+        Label painelTitulo = new Label("Selecione um estado");
 
         painelTitulo.setStyle(
             "-fx-font-size: 25px;" +
             "-fx-font-weight: bold;" +
             "-fx-text-fill: #29B6F6;"
         );
-
 
         Label painelTexto = new Label(
             "Clique em um estado no mapa para visualizar\n" +
@@ -88,16 +88,13 @@ public class Main extends Application {
             "-fx-text-fill: #B8C7D9;"
         );
 
-
-        Label sobre =
-            new Label("Sobre o projeto");
+        Label sobre = new Label("Sobre o projeto");
 
         sobre.setStyle(
             "-fx-font-size: 20px;" +
             "-fx-font-weight: bold;" +
             "-fx-text-fill: white;"
         );
-
 
         Label descricao = new Label(
             "Este mapa apresenta as instituições públicas\n" +
@@ -110,7 +107,6 @@ public class Main extends Application {
             "-fx-text-fill: #B8C7D9;"
         );
 
-
         VBox painelDireito = new VBox(
             25,
             painelTitulo,
@@ -119,10 +115,7 @@ public class Main extends Application {
             descricao
         );
 
-        painelDireito.setPadding(
-            new Insets(30)
-        );
-
+        painelDireito.setPadding(new Insets(30));
         painelDireito.setMinWidth(400);
 
         painelDireito.setStyle(
@@ -132,43 +125,40 @@ public class Main extends Application {
             "-fx-border-radius: 15px;"
         );
 
-
+        // ==========================================
         // MAPA DO BRASIL
+        // ==========================================
 
         javafx.scene.Group mapaBrasil =
             MapaBrasil.criarMapa(nomeEstado -> {
 
-                VBox telaEstado =
-                    TelaEstado.criar(
-                        nomeEstado,
-                        () -> scene.setRoot(telaMapa)
-                    );
+                VBox telaEstado = TelaEstado.criar(
+                    nomeEstado,
+                    () -> scene.setRoot(telaMapa)
+                );
 
                 scene.setRoot(telaEstado);
             });
 
-
         mapaBrasil.setScaleX(1.20);
         mapaBrasil.setScaleY(1.20);
 
-
+        // ==========================================
         // ÁREA DO MAPA
+        // ==========================================
 
-        StackPane areaMapa =
-            new StackPane(mapaBrasil);
+        StackPane areaMapa = new StackPane(mapaBrasil);
 
-        areaMapa.setMinSize(
-            650,
-            600
-        );
+        areaMapa.setMinSize(650, 600);
 
         areaMapa.setStyle(
             "-fx-background-color: #05090D;" +
             "-fx-background-radius: 15px;"
         );
 
-
+        // ==========================================
         // CONTEÚDO DO MAPA
+        // ==========================================
 
         HBox conteudo = new HBox(
             30,
@@ -176,15 +166,14 @@ public class Main extends Application {
             painelDireito
         );
 
-        conteudo.setAlignment(
-            Pos.CENTER
-        );
+        conteudo.setAlignment(Pos.CENTER);
 
-
-        // BOTÃO VOLTAR
+        // ==========================================
+        // BOTÃO VOLTAR AO OCEANO HUB
+        // ==========================================
 
         Button botaoVoltar =
-            new Button("Voltar ao OCEANO HUB");
+            new Button("← Voltar ao OCEANO HUB");
 
         botaoVoltar.setStyle(
             "-fx-background-color: #15232D;" +
@@ -197,21 +186,15 @@ public class Main extends Application {
         );
 
         botaoVoltar.setOnAction(event -> {
-
             scene.setRoot(telaMenu);
-
         });
 
+        HBox areaBotaoVoltar = new HBox(botaoVoltar);
+        areaBotaoVoltar.setAlignment(Pos.CENTER_LEFT);
 
-        HBox areaBotaoVoltar =
-            new HBox(botaoVoltar);
-
-        areaBotaoVoltar.setAlignment(
-            Pos.CENTER_LEFT
-        );
-
-
+        // ==========================================
         // TELA DO MAPA
+        // ==========================================
 
         VBox principal = new VBox(
             15,
@@ -220,68 +203,91 @@ public class Main extends Application {
             conteudo
         );
 
-        principal.setPadding(
-            new Insets(30)
-        );
+        principal.setPadding(new Insets(30));
 
         principal.setStyle(
             "-fx-background-color: #020609;"
         );
 
-
         telaMapa = principal;
 
-
-        // OCEANO HUB
+        // ==========================================
+        // OCEANO HUB - MENU PRINCIPAL
+        // ==========================================
 
         telaMenu = TelaMenu.criar(
 
-            // CURSOS DE OCEANOGRAFIA
+            // 1 - CURSOS DE OCEANOGRAFIA (MAPA)
 
             () -> {
-
                 scene.setRoot(telaMapa);
-
             },
 
-
-            // TRÁFEGO MARÍTIMO
+            // 2 - TRÁFEGO MARÍTIMO
 
             () -> {
 
                 VBox telaTrafego =
                     TelaTrafegoMaritimo.criar(
-
-                        () ->
-                            scene.setRoot(telaMenu)
-
+                        () -> scene.setRoot(telaMenu)
                     );
 
                 scene.setRoot(telaTrafego);
-
             },
 
-
-            // REVISTAS CIENTÍFICAS
+            // 3 - REVISTAS CIENTÍFICAS
 
             () -> {
 
                 VBox telaRevistas =
                     TelaRevistas.criar(
-
-                        () ->
-                            scene.setRoot(telaMenu)
-
+                        () -> scene.setRoot(telaMenu)
                     );
 
                 scene.setRoot(telaRevistas);
+            },
 
+            // 4 - ESPÉCIES MARINHAS (WoRMS)
+
+            () -> {
+
+                VBox telaEspecies =
+                    TelaWoRMS.criar(
+                        () -> scene.setRoot(telaMenu)
+                    );
+
+                scene.setRoot(telaEspecies);
+            },
+
+            // 5 - INSTITUIÇÕES OCEÂNICAS
+
+            () -> {
+
+                VBox telaInstituicoes =
+                    TelaInstituicoesOceano.criar(
+                        () -> scene.setRoot(telaMenu)
+                    );
+
+                scene.setRoot(telaInstituicoes);
+            },
+
+            // 6 - CURSOS RELACIONADOS
+
+            () -> {
+
+                VBox telaCursosRelacionados =
+                    TelaCursosRelacionados.criar(
+                        () -> scene.setRoot(telaMenu)
+                    );
+
+                scene.setRoot(telaCursosRelacionados);
             }
 
         );
 
-
+        // ==========================================
         // SCENE
+        // ==========================================
 
         scene = new Scene(
             telaMenu,
@@ -289,12 +295,11 @@ public class Main extends Application {
             750
         );
 
-
+        // ==========================================
         // JANELA
+        // ==========================================
 
-        stage.setTitle(
-            "Oceano Hub"
-        );
+        stage.setTitle("Oceano Hub");
 
         stage.setScene(scene);
 
@@ -304,12 +309,11 @@ public class Main extends Application {
         stage.show();
     }
 
-
+    // ==========================================
     // INICIAR PROGRAMA
+    // ==========================================
 
     public static void main(String[] args) {
-
         launch(args);
-
     }
 }
