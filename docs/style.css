@@ -269,59 +269,231 @@ footer strong {
 }
 
 
-/* TRÁFEGO MARÍTIMO */
+/* OCEANO EM TEMPO REAL */
 
-.area-trafego {
-    margin-bottom: 70px;
-    padding: 35px;
+.pagina-trafego {
+    margin: 0;
+    min-height: 100vh;
+
+    background: #020609;
+    color: #FFFFFF;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.trafego-container {
+    width: min(1200px, calc(100% - 40px));
+    margin: 0 auto;
+
+    padding: 45px 0 70px;
+}
+
+.trafego-voltar {
+    padding: 11px 20px;
+
+    background: transparent;
+    color: #29B6F6;
+
+    border: 1px solid #29B6F6;
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.trafego-voltar:hover {
+    background: #29B6F6;
+    color: #020609;
+
+    transform: translateY(-2px);
+}
+
+.trafego-titulo {
+    margin: 55px 0 10px;
+
+    color: #29B6F6;
+
+    font-size: 46px;
+    font-weight: bold;
+
+    text-align: center;
+}
+
+.trafego-subtitulo {
+    max-width: 760px;
+
+    margin: 0 auto 60px;
+
+    color: #9DAEB9;
+
+    font-size: 17px;
+    line-height: 1.6;
+
+    text-align: center;
+}
+
+
+/* CATEGORIAS */
+
+.trafego-categoria {
+    margin-bottom: 55px;
+}
+
+.trafego-categoria > h2 {
+    margin: 0 0 22px;
+
+    padding-bottom: 12px;
+
+    color: #29B6F6;
+
+    font-size: 25px;
+    font-weight: bold;
+
+    border-bottom: 1px solid #263D4A;
+}
+
+
+/* LINHAS DE CARDS */
+
+.trafego-linha {
+    display: grid;
+
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(280px, 1fr)
+    );
+
+    gap: 20px;
+}
+
+
+/* CARDS */
+
+.trafego-caixa {
+    display: flex;
+    flex-direction: column;
+
+    min-height: 210px;
+
+    padding: 25px;
 
     background: #0D171E;
 
     border: 1px solid #263D4A;
     border-radius: 12px;
+
+    transition: 0.2s;
 }
 
-.area-trafego h2 {
-    margin-top: 12px;
-    margin-bottom: 10px;
+.trafego-caixa:hover {
+    border-color: #29B6F6;
 
-    font-size: 28px;
+    transform: translateY(-4px);
+
+    box-shadow: 0 8px 25px rgba(41, 182, 246, 0.08);
 }
 
-.area-trafego p {
-    max-width: 700px;
+.trafego-caixa h3 {
+    margin: 0 0 14px;
+
+    color: #FFFFFF;
+
+    font-size: 19px;
+}
+
+.trafego-caixa p {
+    margin: 0 0 25px;
 
     color: #9DAEB9;
 
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.6;
 
-    margin-bottom: 25px;
+    flex-grow: 1;
 }
 
-.botao-externo {
+
+/* LINKS */
+
+.trafego-link {
     display: inline-block;
 
-    padding: 12px 22px;
+    align-self: flex-start;
+
+    padding: 10px 17px;
 
     background: #0288D1;
-    color: white;
+    color: #FFFFFF;
 
     border: 1px solid #29B6F6;
-    border-radius: 8px;
+    border-radius: 7px;
 
     text-decoration: none;
-    font-size: 14px;
+
+    font-size: 13px;
     font-weight: bold;
 
     transition: 0.2s;
 }
 
-.botao-externo:hover {
+.trafego-link:hover {
     background: #29B6F6;
     color: #020609;
 
     transform: translateY(-2px);
+}
+
+
+/* FONTE */
+
+.trafego-fonte {
+    margin-top: 30px;
+
+    color: #607D8B;
+
+    font-size: 12px;
+
+    text-align: center;
+}
+
+
+/* RESPONSIVO */
+
+@media (max-width: 700px) {
+
+    .trafego-container {
+        width: min(100% - 28px, 1200px);
+
+        padding-top: 25px;
+    }
+
+    .trafego-titulo {
+        margin-top: 40px;
+
+        font-size: 34px;
+    }
+
+    .trafego-subtitulo {
+        margin-bottom: 45px;
+
+        font-size: 15px;
+    }
+
+    .trafego-categoria > h2 {
+        font-size: 21px;
+    }
+
+    .trafego-linha {
+        grid-template-columns: 1fr;
+    }
+
+    .trafego-caixa {
+        min-height: auto;
+    }
 }
 
 
@@ -1511,6 +1683,219 @@ footer strong {
 
     .relacionados-card h2 {
         font-size: 19px;
+    }
+}
+/* CIÊNCIAS DO MAR */
+
+.ciencias-mar-publicas,
+.ciencias-mar-privadas,
+.ciencias-mar-atuacao,
+.ciencias-mar-distribuicao {
+    margin-top: 55px;
+}
+
+.ciencias-mar-titulo {
+    margin: 0 0 10px;
+
+    color: #29B6F6;
+
+    font-size: 24px;
+    font-weight: bold;
+
+    line-height: 1.3;
+}
+
+.ciencias-mar-introducao {
+    max-width: 900px;
+
+    margin: 0 0 22px;
+
+    color: #A9BAC7;
+
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+
+/* GRID */
+
+.ciencias-mar-grid {
+    display: grid;
+
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(260px, 1fr)
+    );
+
+    gap: 18px;
+}
+
+
+/* CARDS */
+
+.ciencias-mar-card {
+    display: flex;
+    flex-direction: column;
+
+    min-height: 190px;
+
+    padding: 22px;
+
+    box-sizing: border-box;
+
+    background-color: #101B24;
+
+    border: 1px solid #203746;
+    border-radius: 12px;
+
+    transition:
+        border-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.ciencias-mar-card:hover {
+    border-color: #29B6F6;
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 8px 22px rgba(41, 182, 246, 0.08);
+}
+
+
+/* NOME DA UNIVERSIDADE */
+
+.ciencias-mar-card h3 {
+    margin: 0 0 12px;
+
+    color: #EAF4FA;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    line-height: 1.4;
+}
+
+
+/* ESTADO */
+
+.ciencias-mar-card > span {
+    display: inline-block;
+
+    width: fit-content;
+
+    margin-bottom: 12px;
+
+    padding: 5px 9px;
+
+    background-color: #142F3D;
+    color: #80CBC4;
+
+    border-radius: 6px;
+
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+/* CURSO OU ÁREA */
+
+.ciencias-mar-card > strong {
+    display: block;
+
+    margin-bottom: 18px;
+
+    color: #29B6F6;
+
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+
+/* LINK */
+
+.ciencias-mar-card > a {
+    display: inline-block;
+
+    align-self: flex-start;
+
+    margin-top: auto;
+
+    padding: 9px 13px;
+
+    background-color: #12384B;
+    color: #29B6F6;
+
+    border-radius: 7px;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.15s ease;
+}
+
+.ciencias-mar-card > a:hover {
+    background-color: #29B6F6;
+    color: #05090D;
+
+    transform: translateY(-1px);
+}
+
+
+/* DISTRIBUIÇÃO GEOGRÁFICA */
+
+.ciencias-mar-distribuicao {
+    margin-bottom: 35px;
+}
+
+.ciencias-mar-distribuicao .ciencias-mar-card {
+    min-height: auto;
+}
+
+.ciencias-mar-distribuicao .ciencias-mar-card h3 {
+    color: #29B6F6;
+
+    font-size: 18px;
+}
+
+.ciencias-mar-distribuicao .ciencias-mar-card p {
+    margin: 5px 0;
+
+    color: #A9BAC7;
+
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+/* RESPONSIVO */
+
+@media (max-width: 700px) {
+
+    .ciencias-mar-publicas,
+    .ciencias-mar-privadas,
+    .ciencias-mar-atuacao,
+    .ciencias-mar-distribuicao {
+        margin-top: 40px;
+    }
+
+    .ciencias-mar-titulo {
+        font-size: 20px;
+    }
+
+    .ciencias-mar-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ciencias-mar-card {
+        min-height: auto;
+
+        padding: 18px;
     }
 }
 

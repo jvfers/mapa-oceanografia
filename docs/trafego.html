@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Tráfego Marítimo | Oceano Hub</title>
+    <title>Oceano em Tempo Real | Oceano Hub</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -21,105 +21,416 @@
         Voltar ao OCEANO HUB
     </button>
 
-
     <h1 class="trafego-titulo">
-        TRÁFEGO MARÍTIMO
+        OCEANO EM TEMPO REAL
     </h1>
 
     <p class="trafego-subtitulo">
-        Explore o tráfego de navios e conheça mais sobre a navegação marítima.
+        Explore dados, mapas e plataformas de monitoramento dos oceanos em tempo real.
     </p>
 
 
-    <!-- MAPA DE NAVIOS -->
+    <!-- TRÁFEGO MARÍTIMO MUNDIAL -->
 
-    <section class="trafego-mapa">
+    <section class="trafego-categoria">
 
-        <h2>Acompanhar navios</h2>
+        <h2>Tráfego Marítimo Mundial</h2>
 
-        <p>
-            Consulte o mapa do MarineTraffic para acompanhar
-            a movimentação de embarcações e visualizar
-            informações disponíveis sobre o tráfego marítimo.
-        </p>
+        <div class="trafego-linha">
 
-        <button
-            class="trafego-marine"
-            onclick="abrirMarineTraffic()"
-        >
-            Abrir mapa de navios
-        </button>
+            <article class="trafego-caixa">
+                <h3>MarineTraffic</h3>
 
-    </section>
+                <p>
+                    Acompanhe navios em tempo real em qualquer lugar do mundo,
+                    incluindo cargueiros, petroleiros, cruzeiros e embarcações de pesca.
+                </p>
 
-
-    <!-- LINHA 1 -->
-
-    <section class="trafego-linha">
-
-        <article class="trafego-caixa">
-
-            <h3>O que é AIS?</h3>
-
-            <p>
-                AIS é um sistema utilizado para transmitir e
-                receber informações sobre embarcações, auxiliando
-                na identificação e no acompanhamento do tráfego marítimo.
-            </p>
-
-        </article>
+                <a class="trafego-link"
+                   href="https://www.marinetraffic.com"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Acessar MarineTraffic
+                </a>
+            </article>
 
 
-        <article class="trafego-caixa">
+            <article class="trafego-caixa">
+                <h3>VesselFinder</h3>
 
-            <h3>Tipos de navios</h3>
+                <p>
+                    Alternativa gratuita para rastreamento global
+                    de embarcações através do sistema AIS.
+                </p>
 
-            <p>
-                O tráfego marítimo envolve diferentes tipos de
-                embarcações, como navios porta-contêineres,
-                petroleiros, graneleiros, navios de passageiros,
-                rebocadores e outras embarcações.
-            </p>
+                <a class="trafego-link"
+                   href="https://www.vesselfinder.com"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Acessar VesselFinder
+                </a>
+            </article>
 
-        </article>
+        </div>
 
     </section>
 
 
-    <!-- LINHA 2 -->
+    <!-- CORRENTES OCEÂNICAS -->
 
-    <section class="trafego-linha">
+    <section class="trafego-categoria">
 
-        <article class="trafego-caixa">
+        <h2>Correntes Oceânicas</h2>
 
-            <h3>Portos</h3>
+        <div class="trafego-linha">
 
-            <p>
-                Os portos são pontos importantes para o transporte
-                marítimo, permitindo operações de carga, descarga,
-                abastecimento e movimentação de passageiros.
-            </p>
+            <article class="trafego-caixa">
+                <h3>NASA - Perpetual Ocean</h3>
 
-        </article>
+                <p>
+                    Visualização da circulação oceânica global
+                    baseada no modelo ECCO da NASA.
+                </p>
+
+                <a class="trafego-link"
+                   href="https://svs.gsfc.nasa.gov/5505/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Acessar NASA Perpetual Ocean
+                </a>
+            </article>
 
 
-        <article class="trafego-caixa">
+            <article class="trafego-caixa">
+                <h3>NOAA Ocean Currents Map</h3>
 
-            <h3>Navegação marítima</h3>
+                <p>
+                    Mapa interativo para visualizar as correntes
+                    oceânicas ao redor do planeta.
+                </p>
 
-            <p>
-                A navegação marítima utiliza sistemas de posicionamento,
-                comunicação e monitoramento para auxiliar as embarcações
-                durante suas rotas.
-            </p>
+                <a class="trafego-link"
+                   href="https://adp.noaa.gov/oceancurrentsmap/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Abrir mapa de correntes
+                </a>
+            </article>
 
-        </article>
+
+            <article class="trafego-caixa">
+                <h3>NOAA Ocean Model Forecasts</h3>
+
+                <p>
+                    Consulte previsões de correntes oceânicas
+                    e circulação marinha.
+                </p>
+
+                <a class="trafego-link"
+                   href="https://ocean.weather.gov/Current_fcasts.php"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Acessar previsões
+                </a>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- TEMPERATURA, SALINIDADE E NÍVEL DO MAR -->
+
+    <section class="trafego-categoria">
+
+        <h2>Temperatura do Oceano, Salinidade e Nível do Mar</h2>
+
+        <div class="trafego-linha">
+
+            <article class="trafego-caixa">
+                <h3>Copernicus Marine Service</h3>
+
+                <p>
+                    Dados quase em tempo real sobre temperatura da água,
+                    correntes, nível do mar, gelo marinho e outras
+                    condições oceânicas.
+                </p>
+
+                <a class="trafego-link"
+                   href="https://marine.copernicus.eu"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Acessar Copernicus Marine
+                </a>
+            </article>
+
+
+            <article class="trafego-caixa">
+                <h3>NASA Ocean Circulation</h3>
+
+                <p>
+                    Portal científico com dados e visualizações
+                    sobre a circulação oceânica global.
+                </p>
+
+                <a class="trafego-link"
+                   href="https://www.earthdata.nasa.gov/topics/ocean/ocean-circulation"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Acessar NASA Earthdata
+                </a>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- SATÉLITES OCEÂNICOS -->
+
+    <section class="trafego-categoria">
+
+        <h2>Satélites Oceânicos</h2>
+
+        <div class="trafego-linha">
+
+            <article class="trafego-caixa">
+                <h3>NASA State of the Ocean (SOTO)</h3>
+
+                <p>
+                    Ferramenta interativa para visualizar dados
+                    oceânicos obtidos através de satélites.
+                </p>
+
+                <a class="trafego-link"
+                   href="https://www.earthdata.nasa.gov/data/tools/soto"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Acessar SOTO
+                </a>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- CABOS SUBMARINOS -->
+
+    <section class="trafego-categoria">
+
+        <h2>Cabos Submarinos da Internet</h2>
+
+        <div class="trafego-linha">
+
+            <article class="trafego-caixa">
+                <h3>Submarine Cable Map</h3>
+
+                <p>
+                    Explore os cabos submarinos responsáveis por grande
+                    parte das conexões internacionais da internet.
+                </p>
+
+                <a class="trafego-link"
+                   href="https://www.submarinecablemap.com"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Abrir mapa de cabos
+                </a>
+            </article>
+
+
+            <article class="trafego-caixa">
+                <h3>TeleGeography 2026 Cable Map</h3>
+
+                <p>
+                    Versão interativa atualizada das conexões
+                    submarinas globais.
+                </p>
+
+                <a class="trafego-link"
+                   href="https://submarine-cable-map-2026.telegeography.com"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Acessar mapa 2026
+                </a>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- FUNDO OCEÂNICO -->
+
+    <section class="trafego-categoria">
+
+        <h2>Fundo Oceânico e Relevo Submarino</h2>
+
+        <div class="trafego-linha">
+
+            <article class="trafego-caixa">
+                <h3>Seabed 2030</h3>
+
+                <p>
+                    Projeto internacional que busca mapear
+                    completamente o fundo dos oceanos até 2030.
+                </p>
+
+                <a class="trafego-link"
+                   href="https://seabed2030.org"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Acessar Seabed 2030
+                </a>
+            </article>
+
+
+            <article class="trafego-caixa">
+                <h3>GEBCO</h3>
+
+                <p>
+                    Explore dados e mapas batimétricos globais
+                    dos oceanos.
+                </p>
+
+                <a class="trafego-link"
+                   href="https://www.gebco.net"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Acessar GEBCO
+                </a>
+            </article>
+
+
+            <article class="trafego-caixa">
+                <h3>NOAA Bathymetric Viewer</h3>
+
+                <p>
+                    Ferramenta interativa para explorar dados
+                    detalhados do relevo submarino.
+                </p>
+
+                <a class="trafego-link"
+                   href="https://www.ncei.noaa.gov/maps/bathymetry/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Abrir mapa batimétrico
+                </a>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- MARÉS -->
+
+    <section class="trafego-categoria">
+
+        <h2>Marés e Condições Costeiras</h2>
+
+        <div class="trafego-linha">
+
+            <article class="trafego-caixa">
+                <h3>NOAA Tides & Currents</h3>
+
+                <p>
+                    Dados de marés, correntes, temperatura da água
+                    e condições meteorológicas costeiras.
+                </p>
+
+                <a class="trafego-link"
+                   href="https://tidesandcurrents.noaa.gov/map/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Acessar Tides & Currents
+                </a>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- OBSERVATÓRIOS -->
+
+    <section class="trafego-categoria">
+
+        <h2>Observatórios Oceânicos</h2>
+
+        <div class="trafego-linha">
+
+            <article class="trafego-caixa">
+                <h3>Ocean Observatories Initiative (OOI)</h3>
+
+                <p>
+                    Rede de sensores e observatórios que monitoram
+                    continuamente diferentes processos oceânicos.
+                </p>
+
+                <a class="trafego-link"
+                   href="https://oceanobservatories.org"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Acessar OOI
+                </a>
+            </article>
+
+
+            <article class="trafego-caixa">
+                <h3>OOI Data Explorer</h3>
+
+                <p>
+                    Acesse diretamente os dados coletados
+                    pelos observatórios oceânicos da OOI.
+                </p>
+
+                <a class="trafego-link"
+                   href="https://ooinet.oceanobservatories.org"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Explorar dados
+                </a>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- BIODIVERSIDADE -->
+
+    <section class="trafego-categoria">
+
+        <h2>Biodiversidade, Ecossistemas e Dados Marinhos</h2>
+
+        <div class="trafego-linha">
+
+            <article class="trafego-caixa">
+                <h3>EMODnet</h3>
+
+                <p>
+                    Portal europeu que reúne dados sobre habitats,
+                    biodiversidade, geologia, atividades humanas
+                    e Oceanografia.
+                </p>
+
+                <a class="trafego-link"
+                   href="https://emodnet.ec.europa.eu"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Acessar EMODnet
+                </a>
+            </article>
+
+        </div>
 
     </section>
 
 
     <p class="trafego-fonte">
-        Fonte para consulta de tráfego marítimo: MarineTraffic
+        OCEANO HUB — Plataformas e ferramentas para exploração de dados oceânicos.
     </p>
 
 </main>

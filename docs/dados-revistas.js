@@ -30,8 +30,7 @@ const dadosRevistas = [
     },
 
     {
-        nome: "Deep-Sea Research Part I",
-        categoria: "Oceanografia Geral",
+nome: "Deep-Sea Research Part I: Oceanographic Research Papers",        categoria: "Oceanografia Geral",
         descricao: "Pesquisas oceanográficas relacionadas principalmente ao oceano profundo.",
         acesso: "Consultar condições de acesso",
         link: "https://www.sciencedirect.com/journal/deep-sea-research-part-i-oceanographic-research-papers"
@@ -89,12 +88,27 @@ const dadosRevistas = [
     // BRASIL
 
     {
+    nome: "Brazilian Journal of Geology",
+    categoria: "Brasil",
+    descricao: "Periódico científico dedicado às Geociências e à Geologia, incluindo estudos relacionados à evolução geológica e ambientes marinhos.",
+    acesso: "Acesso aberto",
+    link: "https://www.scielo.br/j/bjgeo/"
+},
+
+{
+    nome: "Brazilian Journal of Geophysics",
+    categoria: "Brasil",
+    descricao: "Periódico científico brasileiro dedicado à Geofísica, incluindo pesquisas geofísicas aplicadas aos oceanos e à estrutura terrestre.",
+    acesso: "Consultar condições de acesso",
+    link: "https://www.brjg.sbgf.org.br/"
+},
+
+    {
         nome: "Ocean and Coastal Research",
         categoria: "Brasil",
         descricao: "Periódico do Instituto Oceanográfico da USP dedicado às Ciências do Mar.",
         acesso: "Acesso aberto",
-        link: "https://www.scielo.br/j/ocr/"
-    },
+link: "https://ocr-journal.org/"    },
 
     {
         nome: "Brazilian Journal of Oceanography",
@@ -310,7 +324,7 @@ const dadosRevistas = [
     },
 
     {
-        nome: "Ocean & Coastal Management",
+nome: "Ocean and Coastal Management",
         categoria: "Ambientes Costeiros",
         descricao: "Gestão, políticas públicas, conservação e utilização sustentável das zonas costeiras.",
         acesso: "Consultar condições de acesso",
@@ -379,6 +393,14 @@ const dadosRevistas = [
         link: "https://tos.org/oceanography"
     },
     // OCEANOGRAFIA GERAL - CONTINUAÇÃO
+
+    {
+    nome: "Limnology and Oceanography",
+    categoria: "Oceanografia Geral",
+    descricao: "Pesquisas sobre processos biológicos, químicos, físicos e geológicos em ambientes aquáticos e oceânicos.",
+    acesso: "Consultar condições de acesso",
+    link: "https://aslopubs.onlinelibrary.wiley.com/journal/19395590"
+},
 
     {
         nome: "Continental Shelf Research",
@@ -714,6 +736,14 @@ const dadosRevistas = [
 
 
     // GEOLOGIA E PALEOCEANOGRAFIA
+
+    {
+    nome: "Palaeogeography, Palaeoclimatology, Palaeoecology",
+    categoria: "Geologia Marinha",
+    descricao: "Pesquisas sobre ambientes, climas e ecossistemas do passado, incluindo reconstruções paleoceanográficas e paleoclimáticas.",
+    acesso: "Consultar condições de acesso",
+    link: "https://www.sciencedirect.com/journal/palaeogeography-palaeoclimatology-palaeoecology"
+},
 
     {
         nome: "Marine Micropaleontology",
