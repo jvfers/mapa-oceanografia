@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Revistas Científicas | Oceano Hub</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="pagina-revistas">
+
+<main class="revistas-container">
+
+    <button
+        class="revistas-voltar"
+        onclick="window.location.href='index.html'"
+    >
+        Voltar ao OCEANO HUB
+    </button>
+
+
+    <h1 class="revistas-titulo">
+        REVISTAS CIENTÍFICAS
+    </h1>
+
+
+    <p class="revistas-subtitulo">
+        Explore periódicos científicos relacionados à Oceanografia,
+        Ciências do Mar, biodiversidade e ecossistemas oceânicos.
+    </p>
+
+
+    <!-- ÁREA DE PESQUISA -->
+
+    <section class="revistas-pesquisa">
+
+        <input
+            type="text"
+            id="pesquisaRevista"
+            placeholder="Pesquisar revista ou assunto..."
+        >
+
+
+        <!-- PRIMEIRA LINHA -->
+
+        <div class="revistas-filtros">
+
+            <button onclick="filtrarRevistas('Todas')">
+                Todas
+            </button>
+
+            <button onclick="filtrarRevistas('Brasil')">
+                Brasil
+            </button>
+
+            <button onclick="filtrarRevistas('Oceanografia')">
+                Oceanografia
+            </button>
+
+            <button onclick="filtrarRevistas('Biologia Marinha')">
+                Biologia Marinha
+            </button>
+
+            <button onclick="filtrarRevistas('Oceanografia Física')">
+                Oceanografia Física
+            </button>
+
+        </div>
+
+
+        <!-- SEGUNDA LINHA -->
+
+        <div class="revistas-filtros">
+
+            <button onclick="filtrarRevistas('Pesca')">
+                Pesca
+            </button>
+
+            <button onclick="filtrarRevistas('Conservação')">
+                Conservação
+            </button>
+
+            <button onclick="filtrarRevistas('Geologia Marinha')">
+                Geologia Marinha
+            </button>
+
+            <button onclick="filtrarRevistas('Engenharia Oceânica')">
+                Engenharia Oceânica
+            </button>
+
+        </div>
+
+
+        <p id="contadorRevistas" class="revistas-contador">
+            Carregando periódicos...
+        </p>
+
+    </section>
+
+
+    <!-- CARDS GERADOS PELO JAVASCRIPT -->
+
+    <section
+        id="areaRevistas"
+        class="revistas-cards"
+    >
+    </section>
+
+
+    <p class="revistas-rodape">
+        O OCEANO HUB direciona o usuário aos sites oficiais
+        dos periódicos para consulta científica.
+    </p>
+
+</main>
+
+
+<script src="dados-revistas.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

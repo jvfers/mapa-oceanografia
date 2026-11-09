@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Biodiversidade Marinha | Oceano Hub</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="pagina-worms">
+
+<main class="worms-container">
+
+    <button class="worms-botao" onclick="window.location.href='index.html'">
+        Voltar
+    </button>
+
+    <h1 class="worms-titulo">
+        Biodiversidade Marinha
+    </h1>
+
+    <p class="worms-subtitulo">
+        Conheça as espécies marinhas com o WoRMS
+    </p>
+
+
+    <section class="worms-conteudo">
+
+        <h2>Pesquisar espécies</h2>
+
+        <p class="worms-descricao">
+            Digite o nome científico ou um nome de espécie
+            para consultar a base World Register of Marine Species.
+        </p>
+
+        <div class="worms-pesquisa">
+
+            <input
+                type="text"
+                id="campoWoRMS"
+                placeholder="Ex.: Octopus vulgaris"
+            >
+
+            <button
+                class="worms-botao"
+                onclick="pesquisarWoRMS()"
+            >
+                Pesquisar
+            </button>
+
+        </div>
+
+        <p id="mensagemWoRMS" class="worms-mensagem"></p>
+
+
+        <div class="worms-caixa">
+            A busca será realizada na base oficial do WoRMS.
+            Os resultados completos serão apresentados no navegador.
+        </div>
+
+
+        <h2>O que é o WoRMS?</h2>
+
+        <div class="worms-caixa">
+            O World Register of Marine Species (WoRMS) é uma
+            base de dados científica que reúne informações
+            sobre nomes e classificação de organismos marinhos.
+            Seu objetivo é fornecer uma referência taxonômica
+            confiável e atualizada para pesquisadores, estudantes
+            e profissionais ligados às ciências marinhas.
+        </div>
+
+
+        <h2>Classificação Taxonômica</h2>
+
+        <div class="worms-caixa">
+
+            <p>
+                A classificação taxonômica organiza os organismos
+                em diferentes níveis, permitindo compreender suas
+                relações biológicas.
+            </p>
+
+            <br>
+
+            <p><strong>Reino:</strong> grupo taxonômico mais abrangente apresentado nesta hierarquia.</p>
+            <p><strong>Filo:</strong> reúne organismos com características estruturais fundamentais em comum.</p>
+            <p><strong>Classe:</strong> subdivisão de um filo.</p>
+            <p><strong>Ordem:</strong> subdivisão de uma classe.</p>
+            <p><strong>Família:</strong> reúne gêneros relacionados.</p>
+            <p><strong>Gênero:</strong> reúne espécies próximas.</p>
+            <p><strong>Espécie:</strong> unidade básica de classificação biológica.</p>
+
+            <br>
+
+            <p>
+                Os níveis disponíveis variam conforme o organismo.
+            </p>
+
+        </div>
+
+
+        <h2>Nomes científicos e sinônimos</h2>
+
+        <div class="worms-caixa">
+            Um organismo pode ter nomes científicos históricos
+            ou sinônimos registrados na literatura. A consulta
+            ao WoRMS ajuda a identificar o nome aceito na base
+            e verificar informações taxonômicas associadas.
+            A aceitação de um nome deve ser interpretada de
+            acordo com o registro consultado.
+        </div>
+
+
+        <h2>Importância para a Oceanografia</h2>
+
+        <div class="worms-caixa">
+            A identificação correta dos organismos marinhos
+            é importante para estudos de biodiversidade,
+            monitoramento ambiental, conservação dos oceanos,
+            pesquisas ecológicas e padronização de dados científicos.
+        </div>
+
+
+        <h2>Fonte dos Dados</h2>
+
+        <div class="worms-caixa">
+
+            <p>WoRMS — World Register of Marine Species</p>
+
+            <p>
+                Portal:
+                <a
+                    href="https://www.marinespecies.org/"
+                    target="_blank"
+                >
+                    https://www.marinespecies.org/
+                </a>
+            </p>
+
+            <p>
+                Serviço REST:
+                <a
+                    href="https://www.marinespecies.org/rest/"
+                    target="_blank"
+                >
+                    https://www.marinespecies.org/rest/
+                </a>
+            </p>
+
+            <br>
+
+            <p>
+                Os dados taxonômicos devem ser consultados diretamente
+                na fonte para conferir o nome aceito e as informações
+                mais recentes de cada organismo.
+            </p>
+
+        </div>
+
+
+        <button
+            class="worms-botao worms-site"
+            onclick="window.open('https://www.marinespecies.org/', '_blank')"
+        >
+            Acessar o site oficial do WoRMS
+        </button>
+
+    </section>
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

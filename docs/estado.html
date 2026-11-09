@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Estado | Oceano Hub</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+<body class="pagina-estado">
+
+    <main class="estado-container">
+
+        <!-- VOLTAR -->
+
+        <button
+            class="estado-voltar"
+            onclick="window.location.href='cursos.html'"
+        >
+            ← Voltar ao mapa
+        </button>
+
+
+        <!-- CABEÇALHO -->
+
+        <header class="estado-cabecalho">
+
+            <h1 id="estadoNome">
+                Estado
+            </h1>
+
+            <p>
+                Informações sobre os cursos de Oceanografia neste estado
+            </p>
+
+        </header>
+
+
+        <section class="estado-conteudo">
+
+
+            <!-- CURSOS DE GRADUAÇÃO -->
+
+            <section class="estado-secao">
+
+                <h2>
+                    Cursos de Graduação
+                </h2>
+
+                <div
+                    id="estadoGraduacao"
+                    class="estado-card"
+                >
+                    Carregando informações...
+                </div>
+
+            </section>
+
+
+            <!-- E-MEC -->
+
+            <section class="estado-secao">
+
+                <h2>
+                    Informações do e-MEC
+                </h2>
+
+                <div
+                    id="estadoEmec"
+                    class="estado-card"
+                >
+                    Carregando informações...
+                </div>
+
+            </section>
+
+
+            <!-- UNIFESP -->
+
+            <section
+                id="secaoUnifesp"
+                class="estado-secao"
+                style="display: none;"
+            >
+
+                <h2>
+                    UNIFESP - Turmas de Oceanografia 2024
+                </h2>
+
+                <div
+                    id="estadoUnifesp"
+                    class="estado-card"
+                >
+                </div>
+
+            </section>
+
+
+            <!-- FONTES -->
+
+            <section class="estado-secao">
+
+                <h2>
+                    Fontes dos Dados
+                </h2>
+
+                <div class="estado-card estado-fontes">
+
+                    <p>
+                        • Ministério da Educação (MEC)
+                    </p>
+
+                    <p>
+                        • Instituto Nacional de Estudos e Pesquisas
+                        Educacionais Anísio Teixeira (INEP) - 2024
+                    </p>
+
+                    <p>
+                        • Sistema e-MEC
+                    </p>
+
+                    <p
+                        id="fonteUnifesp"
+                        style="display: none;"
+                    >
+                        • Universidade Federal de São Paulo (UNIFESP)
+                    </p>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+    <!-- BANCO CONVERTIDO PARA JAVASCRIPT -->
+
+    <script src="dados-cursos.js"></script>
+
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+
+                // PEGAR ESTADO DA URL
+
+                const parametros =
+                    new URLSearchParams(
+                        window.location.search
+                    );
+
+
+                const nomeEstado =
+                    parametros.get("estado");
+
+
+                // ELEMENTOS
+
+                const titulo =
+                    document.getElementById(
+                        "estadoNome"
+                    );
+
+
+                const areaGraduacao =
+                    document.getElementById(
+                        "estadoGraduacao"
+                    );
+
+
+                const areaEmec =
+                    document.getElementById(
+                        "estadoEmec"
+                    );
+
+
+                const secaoUnifesp =
+                    document.getElementById(
+                        "secaoUnifesp"
+                    );
+
+
+                const areaUnifesp =
+                    document.getElementById(
+                        "estadoUnifesp"
+                    );
+
+
+                const fonteUnifesp =
+                    document.getElementById(
+                        "fonteUnifesp"
+                    );
+
+
+                // FUNÇÃO NORMALIZAR TEXTO
+
+                function normalizar(texto) {
+
+                    if (!texto) {
+                        return "";
+                    }
+
+
+                    return texto
+                        .normalize("NFD")
+                        .replace(
+                            /[\u0300-\u036f]/g,
+                            ""
+                        )
+                        .toLowerCase()
+                        .trim();
+
+                }
+
+
+                // FUNÇÃO CRIAR SEPARADOR
+
+                function criarSeparador() {
+
+                    const separador =
+                        document.createElement(
+                            "hr"
+                        );
+
+
+                    separador.className =
+                        "estado-separador";
+
+
+                    return separador;
+
+                }
+
+
+                // FUNÇÃO CRIAR LINHA
+
+                function criarLinha(
+                    tituloLinha,
+                    valor
+                ) {
+
+                    const linha =
+                        document.createElement(
+                            "p"
+                        );
+
+
+                    linha.textContent =
+                        tituloLinha +
+                        ": " +
+                        (
+                            valor !== null &&
+                            valor !== undefined &&
+                            String(valor).trim() !== ""
+                                ? valor
+                                : "Não informado"
+                        );
+
+
+                    return linha;
+
+                }
+
+
+                // VERIFICAR ESTADO
+
+                if (!nomeEstado) {
+
+                    titulo.textContent =
+                        "Estado não informado";
+
+
+                    areaGraduacao.textContent =
+                        "Não foi possível identificar o estado selecionado.";
+
+
+                    areaEmec.textContent =
+                        "Não foi possível identificar o estado selecionado.";
+
+
+                    return;
+
+                }
+
+
+                // TÍTULO DA PÁGINA
+
+                titulo.textContent =
+                    nomeEstado;
+
+
+                document.title =
+                    nomeEstado +
+                    " | Oceano Hub";
+
+
+                const estadoNormalizado =
+                    normalizar(
+                        nomeEstado
+                    );
+
+
+                // CURSOS DE GRADUAÇÃO
+
+                const instituicoes =
+                    dadosCursos.instituicoes
+                        .filter(
+                            function (instituicao) {
+
+                                return (
+                                    normalizar(
+                                        instituicao.estado
+                                    )
+                                    ===
+                                    estadoNormalizado
+                                );
+
+                            }
+                        )
+                        .sort(
+                            function (a, b) {
+
+                                const tipoA =
+                                    a.tipo || "";
+
+                                const tipoB =
+                                    b.tipo || "";
+
+
+                                const comparacaoTipo =
+                                    tipoA.localeCompare(
+                                        tipoB,
+                                        "pt-BR"
+                                    );
+
+
+                                if (
+                                    comparacaoTipo !== 0
+                                ) {
+
+                                    return comparacaoTipo;
+
+                                }
+
+
+                                return (
+                                    a.nome || ""
+                                ).localeCompare(
+                                    b.nome || "",
+                                    "pt-BR"
+                                );
+
+                            }
+                        );
+
+
+                areaGraduacao.innerHTML =
+                    "";
+
+
+                if (
+                    instituicoes.length === 0
+                ) {
+
+                    areaGraduacao.textContent =
+                        "Nenhuma instituição de Oceanografia encontrada neste estado.";
+
+                }
+
+                else {
+
+                    instituicoes.forEach(
+                        function (
+                            instituicao,
+                            indice
+                        ) {
+
+                            const bloco =
+                                document.createElement(
+                                    "div"
+                                );
+
+
+                            bloco.className =
+                                "estado-instituicao";
+
+
+                            // NOME
+
+                            const nome =
+                                document.createElement(
+                                    "strong"
+                                );
+
+
+                            let nomeCompleto =
+                                instituicao.nome;
+
+
+                            if (
+                                instituicao.sigla &&
+                                instituicao.sigla.trim() !== ""
+                            ) {
+
+                                nomeCompleto +=
+                                    " (" +
+                                    instituicao.sigla +
+                                    ")";
+
+                            }
+
+
+                            nome.textContent =
+                                nomeCompleto;
+
+
+                            bloco.appendChild(
+                                nome
+                            );
+
+
+                            // LINHAS
+
+                            bloco.appendChild(
+                                criarLinha(
+                                    "Curso",
+                                    instituicao.curso
+                                )
+                            );
+
+
+                            bloco.appendChild(
+                                criarLinha(
+                                    "Modalidade",
+                                    instituicao.modalidade
+                                )
+                            );
+
+
+                            const localizacao =
+                                document.createElement(
+                                    "p"
+                                );
+
+
+                            localizacao.textContent =
+                                "Localização: " +
+                                (
+                                    instituicao.cidade ||
+                                    "Não informado"
+                                ) +
+                                " / " +
+                                (
+                                    instituicao.estado ||
+                                    "Não informado"
+                                );
+
+
+                            bloco.appendChild(
+                                localizacao
+                            );
+
+
+                            bloco.appendChild(
+                                criarLinha(
+                                    "Categoria",
+                                    instituicao.tipo
+                                )
+                            );
+
+
+                            areaGraduacao.appendChild(
+                                bloco
+                            );
+
+
+                            if (
+                                indice <
+                                instituicoes.length - 1
+                            ) {
+
+                                areaGraduacao.appendChild(
+                                    criarSeparador()
+                                );
+
+                            }
+
+                        }
+                    );
+
+                }
+
+
+                // DADOS DO E-MEC
+
+                const registrosEmec =
+                    dadosCursos.dados_emec
+                        .filter(
+                            function (registro) {
+
+                                return (
+                                    normalizar(
+                                        registro.estado
+                                    )
+                                    ===
+                                    estadoNormalizado
+                                );
+
+                            }
+                        )
+                        .sort(
+                            function (a, b) {
+
+                                const instituicaoA =
+                                    a.instituicao || "";
+
+                                const instituicaoB =
+                                    b.instituicao || "";
+
+
+                                const comparacao =
+                                    instituicaoA.localeCompare(
+                                        instituicaoB,
+                                        "pt-BR"
+                                    );
+
+
+                                if (
+                                    comparacao !== 0
+                                ) {
+
+                                    return comparacao;
+
+                                }
+
+
+                                return (
+                                    a.curso || ""
+                                ).localeCompare(
+                                    b.curso || "",
+                                    "pt-BR"
+                                );
+
+                            }
+                        );
+
+
+                areaEmec.innerHTML =
+                    "";
+
+
+                if (
+                    registrosEmec.length === 0
+                ) {
+
+                    areaEmec.textContent =
+                        "Nenhum registro do e-MEC encontrado neste estado.";
+
+                }
+
+                else {
+
+                    registrosEmec.forEach(
+                        function (
+                            registro,
+                            indice
+                        ) {
+
+                            const bloco =
+                                document.createElement(
+                                    "div"
+                                );
+
+
+                            bloco.className =
+                                "estado-instituicao";
+
+
+                            // NOME DA INSTITUIÇÃO
+
+                            const nome =
+                                document.createElement(
+                                    "strong"
+                                );
+
+
+                            let nomeCompleto =
+                                registro.instituicao;
+
+
+                            if (
+                                registro.sigla &&
+                                registro.sigla.trim() !== ""
+                            ) {
+
+                                nomeCompleto +=
+                                    " (" +
+                                    registro.sigla +
+                                    ")";
+
+                            }
+
+
+                            nome.textContent =
+                                nomeCompleto;
+
+
+                            bloco.appendChild(
+                                nome
+                            );
+
+
+                            // DADOS
+
+                            bloco.appendChild(
+                                criarLinha(
+                                    "Curso",
+                                    registro.curso
+                                )
+                            );
+
+
+                            bloco.appendChild(
+                                criarLinha(
+                                    "Grau",
+                                    registro.grau
+                                )
+                            );
+
+
+                            bloco.appendChild(
+                                criarLinha(
+                                    "Categoria",
+                                    registro.categoria
+                                )
+                            );
+
+
+                            bloco.appendChild(
+                                criarLinha(
+                                    "Modalidade",
+                                    registro.modalidade
+                                )
+                            );
+
+
+                            bloco.appendChild(
+                                criarLinha(
+                                    "Vagas",
+                                    registro.vagas
+                                )
+                            );
+
+
+                            bloco.appendChild(
+                                criarLinha(
+                                    "Situação",
+                                    registro.situacao
+                                )
+                            );
+
+
+                            areaEmec.appendChild(
+                                bloco
+                            );
+
+
+                            if (
+                                indice <
+                                registrosEmec.length - 1
+                            ) {
+
+                                areaEmec.appendChild(
+                                    criarSeparador()
+                                );
+
+                            }
+
+                        }
+                    );
+
+                }
+
+
+                // UNIFESP - SOMENTE SÃO PAULO
+
+                if (
+                    estadoNormalizado ===
+                    "sao paulo"
+                ) {
+
+                    secaoUnifesp.style.display =
+                        "block";
+
+
+                    fonteUnifesp.style.display =
+                        "block";
+
+
+                    areaUnifesp.innerHTML =
+                        "";
+
+
+                    // COPIAR E ORDENAR AS TURMAS
+
+                    const turmas =
+                        [
+                            ...dadosCursos.turmas_unifesp
+                        ];
+
+
+                    turmas.sort(
+                        function (a, b) {
+
+                            const semestreA =
+                                Number(
+                                    a.semestre || 0
+                                );
+
+
+                            const semestreB =
+                                Number(
+                                    b.semestre || 0
+                                );
+
+
+                            if (
+                                semestreA !==
+                                semestreB
+                            ) {
+
+                                return (
+                                    semestreA -
+                                    semestreB
+                                );
+
+                            }
+
+
+                            const disciplinaA =
+                                a.disciplina || "";
+
+
+                            const disciplinaB =
+                                b.disciplina || "";
+
+
+                            const comparacaoDisciplina =
+                                disciplinaA.localeCompare(
+                                    disciplinaB,
+                                    "pt-BR"
+                                );
+
+
+                            if (
+                                comparacaoDisciplina !== 0
+                            ) {
+
+                                return (
+                                    comparacaoDisciplina
+                                );
+
+                            }
+
+
+                            return (
+                                a.turno || ""
+                            ).localeCompare(
+                                b.turno || "",
+                                "pt-BR"
+                            );
+
+                        }
+                    );
+
+
+                    if (
+                        turmas.length === 0
+                    ) {
+
+                        areaUnifesp.textContent =
+                            "Nenhuma turma da UNIFESP encontrada.";
+
+                    }
+
+                    else {
+
+                        turmas.forEach(
+                            function (
+                                turma,
+                                indice
+                            ) {
+
+                                const bloco =
+                                    document.createElement(
+                                        "div"
+                                    );
+
+
+                                bloco.className =
+                                    "estado-instituicao";
+
+
+                                // DISCIPLINA
+
+                                const disciplina =
+                                    document.createElement(
+                                        "strong"
+                                    );
+
+
+                                disciplina.textContent =
+                                    turma.disciplina;
+
+
+                                bloco.appendChild(
+                                    disciplina
+                                );
+
+
+                                // ANO
+
+                                bloco.appendChild(
+                                    criarLinha(
+                                        "Ano",
+                                        turma.ano
+                                    )
+                                );
+
+
+                                // SEMESTRE
+
+                                bloco.appendChild(
+                                    criarLinha(
+                                        "Semestre",
+                                        turma.semestre
+                                    )
+                                );
+
+
+                                // TURNO
+
+                                let turno =
+                                    turma.turno;
+
+
+                                if (
+                                    turma.turno === "M"
+                                ) {
+
+                                    turno =
+                                        "Matutino";
+
+                                }
+
+                                else if (
+                                    turma.turno === "V"
+                                ) {
+
+                                    turno =
+                                        "Vespertino";
+
+                                }
+
+                                else if (
+                                    turma.turno === "N"
+                                ) {
+
+                                    turno =
+                                        "Noturno";
+
+                                }
+
+                                else if (
+                                    turma.turno === "I"
+                                ) {
+
+                                    turno =
+                                        "Integral";
+
+                                }
+
+
+                                bloco.appendChild(
+                                    criarLinha(
+                                        "Turno",
+                                        turno
+                                    )
+                                );
+
+
+                                // CAMPUS
+
+                                bloco.appendChild(
+                                    criarLinha(
+                                        "Campus",
+                                        turma.campus
+                                    )
+                                );
+
+
+                                areaUnifesp.appendChild(
+                                    bloco
+                                );
+
+
+                                if (
+                                    indice <
+                                    turmas.length - 1
+                                ) {
+
+                                    areaUnifesp.appendChild(
+                                        criarSeparador()
+                                    );
+
+                                }
+
+                            }
+                        );
+
+                    }
+
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>

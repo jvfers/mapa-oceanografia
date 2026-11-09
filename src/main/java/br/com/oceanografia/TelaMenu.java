@@ -19,9 +19,7 @@ public class TelaMenu {
         Runnable abrirCursosRelacionados
     ) {
 
-        // ==========================================
         // TÍTULO CENTRAL
-        // ==========================================
 
         Label titulo = new Label("OCEANO HUB");
 
@@ -40,9 +38,7 @@ public class TelaMenu {
             "-fx-text-fill: #B8C7D9;"
         );
 
-        // ==========================================
         // OPÇÕES DO MENU
-        // ==========================================
 
         Button especies =
             criarBotao("Espécies Marinhas");
@@ -62,9 +58,8 @@ public class TelaMenu {
         Button instituicoes =
             criarBotao("Instituições Oceânicas");
 
-        // ==========================================
         // AÇÕES DOS BOTÕES
-        // ==========================================
+       
 
         especies.setOnAction(event -> {
             abrirEspecies.run();
@@ -90,10 +85,9 @@ public class TelaMenu {
             abrirInstituicoes.run();
         });
 
-        // ==========================================
+   
         // CAIXA DO MENU
-        // ==========================================
-
+    
         VBox opcoesMenu = new VBox(
             8,
             especies,
@@ -116,9 +110,8 @@ public class TelaMenu {
         opcoesMenu.setVisible(false);
         opcoesMenu.setManaged(false);
 
-        // ==========================================
         // BOTÃO MENU
-        // ==========================================
+
 
         Button botaoMenu =
             new Button("☰  MENU");
@@ -141,9 +134,7 @@ public class TelaMenu {
             opcoesMenu.setManaged(!aberto);
         });
 
-        // ==========================================
         // PARTE SUPERIOR
-        // ==========================================
 
         VBox areaMenu = new VBox(
             5,
@@ -157,9 +148,7 @@ public class TelaMenu {
 
         topo.setAlignment(Pos.TOP_LEFT);
 
-        // ==========================================
         // CENTRO
-        // ==========================================
 
         VBox centro = new VBox(
             10,
@@ -169,9 +158,7 @@ public class TelaMenu {
 
         centro.setAlignment(Pos.CENTER);
 
-        // ==========================================
         // TELA COMPLETA
-        // ==========================================
 
         VBox tela = new VBox(
             30,
@@ -195,9 +182,7 @@ public class TelaMenu {
         return tela;
     }
 
-    // ==========================================
     // PADRÃO DOS BOTÕES
-    // ==========================================
 
     private static Button criarBotao(String texto) {
 
